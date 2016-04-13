@@ -1,6 +1,12 @@
 package main;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Stephen Gentles
+ *
+ */
+
 public class GameRunner {
 
 	/**

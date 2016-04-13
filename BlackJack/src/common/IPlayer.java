@@ -2,6 +2,12 @@ package common;
 
 import main.Card;
 
+/**
+ * 
+ * @author Stephen Gentles
+ *
+ */
+
 public interface IPlayer {
 	public void emptyHand();
 	public int getHandSum(int aceValue);

@@ -7,6 +7,12 @@ import main.Player;
 
 import org.junit.Test;
 
+/**
+ * 
+ * @author Stephen Gentles
+ *
+ */
+
 public class PlayerCanAddCardTest {
 
 	@Test
