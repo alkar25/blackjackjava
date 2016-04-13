@@ -16,7 +16,7 @@ import org.junit.Test;
 public class PlayerCanAddCardTest {
 
 	@Test
-	public void PlayerCanAddCardtest() {
+	public void PlayerCanAddCard() {
 		//Arrange
 		Player player = new Player("TestPlayer",1);
 		Deck theDeck = new Deck(1, true);
