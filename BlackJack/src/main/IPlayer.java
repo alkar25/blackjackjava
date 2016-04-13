@@ -1,6 +1,5 @@
-package common;
+package main;
 
-import main.Card;
 
 /**
  * 

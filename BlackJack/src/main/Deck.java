@@ -1,7 +1,6 @@
 package main;
 import java.util.Random;
 
-import common.IDeck;
 
 /**
  * Implementation of a deck of cards

@@ -1,6 +1,5 @@
 package main;
 
-import common.IPlayer;
 
 /**
  * an implementation of a blackjack player.
