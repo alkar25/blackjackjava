@@ -11,7 +11,7 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 
 @RunWith(Suite.class)
-@SuiteClasses({ PlayerTests.class })
+@SuiteClasses({ PlayerTests.class, DeckTests.class })
 public class AllTests {
 
 }

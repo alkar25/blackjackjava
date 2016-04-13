@@ -3,6 +3,7 @@ package test;
 import static org.junit.Assert.*;
 
 import main.Deck;
+import main.JavaRandomWrapper;
 import main.Player;
 
 import org.junit.Test;
@@ -18,6 +19,7 @@ public class PlayerTests {
 	@Test
 	public void player_can_add_card() {
 		//Arrange
+		JavaRandomWrapper rnd = new JavaRandomWrapper();
 		Player player = new Player("TestPlayer",1);
 		Deck theDeck = new Deck(1, true);
 		

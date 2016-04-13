@@ -1,6 +1,8 @@
 package main;
 import java.util.Random;
 
+import common.NoCardsLeftException;
+
 
 /**
  * Implementation of a deck of cards
@@ -19,9 +21,19 @@ public class Deck implements IDeck {
 	private int numCards;
 	
 	/**
+	 * Declaration of Random number generator custom wrapper
+	 */
+	private IRandomWrapper randomWrapper;
+	
+	/**
+	 * Track the top card in the current deck
+	 */
+	private int topPosition;
+	
+	/**
 	 * Constructor with a default of one deck and no shuffling
 	 */
-	public Deck() {
+	public Deck(IRandomWrapper randomWrapper) {
 		
 		//call the other constructor, defining one deck without shuffling
 	this(1, false);
@@ -42,6 +54,7 @@ public class Deck implements IDeck {
 		
 		//intial card index
 		int c = 0;
+		this.topPosition = 0;
 		
 		// for each deck
 		for(int d = 0; d < numDecks; d++){
@@ -71,7 +84,7 @@ public class Deck implements IDeck {
 	 * randomly shuffle deck by swapping pairs of cards
 	 */
 	public void shuffle(){
-		Random rng = new Random();
+		Random rnd = new Random();
 		
 		//temporary card variable
 		Card temp;
@@ -79,9 +92,9 @@ public class Deck implements IDeck {
 		int j;
 		for(int i = 0; i < this.numCards; i++){
 			//get a random card j to swap it's value with
-			j = rng.nextInt(this.numCards);
+			j = rnd.nextInt(this.numCards);
 			
-						//swap
+			//swap
 			temp = this.myCards[i];
 			this.myCards[i] = this.myCards[j];
 			this.myCards[j] = temp;
@@ -96,7 +109,13 @@ public class Deck implements IDeck {
 		 */
 		
 		//get the top card
-		
+		if(this.numCards == 0){
+			try {
+				throw new NoCardsLeftException("No more cards left on the deck");
+			} catch (NoCardsLeftException e) {
+				e.printStackTrace();
+			}
+		}
 		Card top = this.myCards[0];
 		
 		//shift all the remaining card to the left by one index
@@ -104,6 +123,8 @@ public class Deck implements IDeck {
 			this.myCards[c-1] = this.myCards[c];
 			
 		}
+		
+		this.topPosition++;
 		
 		this.myCards[this.numCards-1] = null;
 		

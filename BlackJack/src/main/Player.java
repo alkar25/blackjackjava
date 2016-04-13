@@ -97,6 +97,29 @@ public class Player implements IPlayer{
 				handSum += cardNum;
 			}
 		}
+		return handSum;
+	}
+		
+		public int getFinalHandSum(int aceValue){
+			int handSum = 0;
+			int cardNum;
+			int numAces = 0;
+			
+			//calculate each card's contribution to the hand sum
+			for(int c = 0; c < this.numCards; c++){
+				
+				//get the number for the current hand
+				cardNum = this.hand[c].getNumber();
+				
+				if (cardNum == 1) { //ace
+					numAces++;
+					handSum += aceValue;
+				} else if (cardNum > 10 ){ //face card
+					handSum += 10;
+				} else {
+					handSum += cardNum;
+				}
+			}
 		
 		// While we have aces and while the handsum is above 21 we subtract 10
 		while(handSum > 21 && numAces > 0){

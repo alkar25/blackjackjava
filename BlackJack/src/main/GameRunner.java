@@ -55,6 +55,7 @@ public class GameRunner {
 		//print initial hands
 		System.out.println("Cards are dealt\n");
 		me.printHand(true);
+		System.out.println("\n");
 		dealer.printHand(false);
 		System.out.println("\n");
 		
@@ -75,6 +76,7 @@ public class GameRunner {
 					// Add next card in the deck and store whether player is busted
 					meDone = !me.addCard(theDeck.dealNextCard(),playerAcePrefValue);
 					me.printHand(true);
+					
 				} else {
 					System.out.println(me.getPlayerName() + " decided to stands\n");
 					meDone = true;
@@ -87,6 +89,8 @@ public class GameRunner {
 					System.out.println("The dealer hits\n");
 					dealerDone = !dealer.addCard(theDeck.dealNextCard(),dealerAcePrefValue);
 					dealer.printHand(false);
+					
+					
 				} else  {
 					System.out.println("The Dealer stands\n");
 					dealerDone = true;
@@ -102,15 +106,18 @@ public class GameRunner {
 		//print final hands
 		me.printHand(true);
 		dealer.printHand(true);
+		System.out.println();
+		System.out.println(me.getPlayerName() + "'s Hand counts is: " + me.getFinalHandSum(playerAcePrefValue));
+		System.out.println("Dealer Hand counts is: " + dealer.getFinalHandSum(dealerAcePrefValue));
 		
 		int mySum = me.getHandSum(playerAcePrefValue);
 		int dealerSum = dealer.getHandSum(dealerAcePrefValue);
 		
 		if(mySum > dealerSum && mySum <= 21 || dealerSum > 21){
-			System.out.println("your Win!");
+			System.out.println(me.getPlayerName() + " Wins!");
 		}else
 		{
-			System.out.println("Dealer wins");
+			System.out.println("\nDealer wins");
 		}
 		
 		
